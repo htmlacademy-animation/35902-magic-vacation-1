@@ -45,7 +45,12 @@ export default class FullPageScroll {
       screen.classList.remove(`active`);
     });
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
-    this.screenElements[this.activeScreen].classList.add(`active`);
+
+    // as a developer said:
+    // @Alexander Как временное решение могу предложить обернуть в setTimeout эту строку http://joxi.ru/KAx9yXyHZjMYRr. Позже я пересмотрю код и скорее всего выкатим обновление.
+    setTimeout(() => {
+      this.screenElements[this.activeScreen].classList.add(`active`);
+    }, 500);
   }
 
   changeActiveMenuItem() {

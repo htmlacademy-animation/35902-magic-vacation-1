@@ -3,8 +3,13 @@
 
   &:hover {
     .social-block__list {
-      opacity: 1;
+      // opacity: 1;
       pointer-events: auto;
+    }
+
+    .social-block__link {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }
@@ -17,6 +22,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transition: color 1s ease 0.1s;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -35,6 +41,8 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: width 0.3s ease 0.1s,
+      height 0.4s ease 0.1s;
   }
 
   svg {
@@ -87,7 +95,7 @@
   top: 100%;
   right: 0;
   margin-top: 1.5rem;
-  opacity: 0;
+  // opacity: 0;
   pointer-events: none;
 
   @media (min-width: $stop-scaling) {
@@ -163,11 +171,16 @@
 .social-block__link {
   position: relative;
   display: block;
+  opacity: 0;
   width: 4rem;
   height: 4rem;
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease,
+    transform 0.5s ease,
+    color 0.3s ease;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -207,6 +220,8 @@
   }
 
   &--fb {
+    transition-delay: 0.1s;
+
     svg {
       width: 0.8rem;
       height: 1.7rem;
@@ -219,6 +234,8 @@
   }
 
   &--insta {
+    transition-delay: 0.2s;
+
     svg {
       width: 1.5rem;
       height: 1.5rem;
@@ -231,6 +248,8 @@
   }
 
   &--vk {
+    transition-delay: 0.3s;
+
     svg {
       width: 1.7rem;
       height: 1rem;
