@@ -44,6 +44,7 @@ export default class FullPageScroll {
       screen.classList.add(`screen--hidden`);
       screen.classList.remove(`active`);
     });
+
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
     this.screenElements[this.activeScreen].classList.add(`active`);
   }

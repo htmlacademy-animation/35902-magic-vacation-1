@@ -10,6 +10,25 @@
     display: none;
   }
 
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    // z-index: 10000;
+    transition: height 1s;
+  }
+
+  &.active::after {
+    animation: bgFill 1s ease;
+    animation-fill-mode: both;
+  }
+
+  &--prizes::after {
+    background-color: $c-dark;
+  }
+
   @media (max-width: $tablet) and (orientation: portrait) {
     min-height: calc(var(--vh, 1vh) * 100);
   }
