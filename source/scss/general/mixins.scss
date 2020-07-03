@@ -60,7 +60,6 @@
 }
 
 @mixin headerFooterTransition {
-  transition: opacity 0.8s,
-    transform 0.8s;
+  transition: opacity 0.8s, transform 0.8s;
   transition-timing-function: cubic-bezier(0.24, 1.04, 0.73, 0.93);
 }
