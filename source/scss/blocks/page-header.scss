@@ -28,6 +28,7 @@
 
 .page-header__logo {
   @include hover;
+  @include headerFooterTransition();
   position: relative;
   flex: none;
   top: -0.5rem;
@@ -35,6 +36,8 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  opacity: 0;
+  transform: translateX(-4rem);
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -47,6 +50,7 @@
     padding: 0.5rem 0;
     width: 6.8rem;
     z-index: 1;
+    transform: translateX(-1rem);
 
     .page-header--menu-opened & {
       color: $c-dark;
@@ -62,6 +66,11 @@
     .page-header--menu-opened & {
       color: $c-dark;
     }
+  }
+
+  .loaded & {
+    opacity: 1;
+    transform: translateX(0);
   }
 
   svg {
@@ -168,6 +177,17 @@
       transform: translateX(0);
     }
   }
+
+  @media (min-width: $tablet) {
+    @include headerFooterTransition();
+    opacity: 0;
+    transform: translateX(4rem);
+
+    .loaded & {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 }
 
 .page-header__menu {
@@ -241,6 +261,7 @@
     display: block;
     color: inherit;
     padding: 0 0.5em 0.5em;
+    transition: color 0.5s ease;
 
     &::after {
       content: "";
@@ -249,8 +270,11 @@
       width: 100%;
       height: 2px;
       background-color: $c-light;
-      display: none;
       left: 0;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s ease,
+        background-color 0.4s ease;
 
       @media (max-width: $tablet) and (orientation: portrait) {
         left: 0;
@@ -266,18 +290,22 @@
     }
 
     &.active {
+      cursor: default;
+
       &::after {
-        display: block;
+        transform: scaleX(1);
+        transform-origin: left;
       }
     }
 
-    &:hover,
-    &:focus {
+    &:not(.active):hover,
+    &:not(.active):focus {
       color: $c-purple;
       outline: none;
 
       &::after {
-        opacity: 1;
+        transform: scaleX(1);
+        transform-origin: left;
         background-color: $c-purple;
       }
     }

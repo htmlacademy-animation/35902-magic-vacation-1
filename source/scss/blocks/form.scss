@@ -48,6 +48,61 @@
     border: 1px solid $c-purple;
   }
 
+  .chat__footer & {
+    transform: scaleX(0);
+    color: rgba($c-dark, 0);
+    transition: transform 0.5s ease;
+    transform-origin: right;
+
+    &::-webkit-input-placeholder {
+      color: $c-dark;
+      opacity: 0;
+      transition: opacity 0.5s ease 0.2s;
+    }
+
+    &:-ms-input-placeholder {
+      color: $c-dark;
+      opacity: 0;
+      transition: opacity 0.5s ease 0.2s;
+    }
+
+    &::placeholder {
+      color: $c-dark;
+      opacity: 0;
+      transition: opacity 0.5s ease 0.4s;
+    }
+  }
+
+  .active .chat__footer & {
+    width: calc(100% - 21rem);
+    transform: scaleX(1);
+    color: $c-dark;
+
+    &::-webkit-input-placeholder {
+      opacity: 0.5;
+    }
+
+    &:-ms-input-placeholder {
+      opacity: 0.5;
+    }
+
+    &::placeholder {
+      opacity: 0.5;
+    }
+
+    @media (min-width: $stop-scaling) {
+      width: calc(100% - 210px);
+    }
+
+    @media (max-width: $tablet) and (orientation: landscape) {
+      width: calc(100% - 9rem);
+    }
+
+    @media (max-width: $mobile) and (orientation: landscape) {
+      width: calc(100% - 5rem);
+    }
+  }
+
   @media (min-width: $stop-scaling) {
     margin-right: 30px;
     padding: 0 56px;
@@ -80,6 +135,10 @@
 
 .form__button {
   flex-grow: 1;
+
+  .chat__footer & {
+    max-width: 21rem;
+  }
 
   @media (orientation: portrait) {
     position: relative;
