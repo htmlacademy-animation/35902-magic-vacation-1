@@ -53,7 +53,6 @@ export default class FullPageScroll {
           this.hide(el);
         }, this.VISIBILITY_TIMEOUT);
       });
-      bgFill.classList.remove(this._activeClass);
       bgFill.classList.add(this._activeClass);
 
       setTimeout(() => {
