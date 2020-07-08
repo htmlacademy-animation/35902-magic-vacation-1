@@ -1,0 +1,13 @@
+.bg-fill {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  &.active {
+    animation-name: bgFill;
+    animation-duration: 750ms;
+    animation-fill-mode: both;
+    background-color: $c-dark;
+  }
+}

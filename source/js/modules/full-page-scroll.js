@@ -3,9 +3,13 @@ import throttle from 'lodash/throttle';
 export default class FullPageScroll {
   constructor() {
     this.THROTTLE_TIMEOUT = 2000;
+    this.VISIBILITY_TIMEOUT = 700;
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
+
+    this._activeClass = `active`;
+    this._hiddenClass = `screen--hidden`;
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
@@ -40,24 +44,44 @@ export default class FullPageScroll {
   }
 
   changeVisibilityDisplay() {
-    this.screenElements.forEach((screen) => {
-      screen.classList.add(`screen--hidden`);
-      screen.classList.remove(`active`);
-    });
-    this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
+    const filledScreens = [2];
+    const bgFill = document.querySelector(`.bg-fill`);
 
-    // as a developer said:
-    // @Alexander Как временное решение могу предложить обернуть в setTimeout эту строку http://joxi.ru/KAx9yXyHZjMYRr. Позже я пересмотрю код и скорее всего выкатим обновление.
-    setTimeout(() => {
-      this.screenElements[this.activeScreen].classList.add(`active`);
-    }, 500);
+    if (filledScreens.includes(this.activeScreen)) {
+      this.screenElements.forEach((el) => {
+        setTimeout(() => {
+          this.hide(el);
+        }, this.VISIBILITY_TIMEOUT);
+      });
+      bgFill.classList.add(this._activeClass);
+
+      setTimeout(() => {
+        this.show(this.screenElements[this.activeScreen]);
+      }, this.VISIBILITY_TIMEOUT);
+    } else {
+      this.screenElements.forEach((el) => {
+        this.hide(el);
+      });
+      bgFill.classList.remove(this._activeClass);
+      this.show(this.screenElements[this.activeScreen]);
+    }
+  }
+
+  hide(screen) {
+    screen.classList.add(this._hiddenClass);
+    screen.classList.remove(this._activeClass);
+  }
+
+  show(screen) {
+    screen.classList.remove(this._hiddenClass);
+    screen.classList.add(this._activeClass);
   }
 
   changeActiveMenuItem() {
     const activeItem = Array.from(this.menuElements).find((item) => item.dataset.href === this.screenElements[this.activeScreen].id);
     if (activeItem) {
-      this.menuElements.forEach((item) => item.classList.remove(`active`));
-      activeItem.classList.add(`active`);
+      this.menuElements.forEach((item) => item.classList.remove(this._activeClass));
+      activeItem.classList.add(this._activeClass);
     }
   }
 
