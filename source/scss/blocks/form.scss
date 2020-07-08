@@ -55,7 +55,7 @@
 
   .active .chat__footer & {
     width: calc(100% - 21rem);
-    animation-name: chatFooterInput;
+    animation-name: inputShow;
     animation-duration: 0.5s;
     animation-fill-mode: both;
     color: $c-dark;

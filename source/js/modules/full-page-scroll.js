@@ -38,6 +38,9 @@ export default class FullPageScroll {
   }
 
   changePageDisplay() {
+    const rulesLink = document.querySelector(`.rules__link`);
+    rulesLink.classList.remove(this._activeClass);
+
     this.changeVisibilityDisplay();
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();

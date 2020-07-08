@@ -22,7 +22,7 @@
   }
 }
 
-@keyframes chatFooterInput {
+@keyframes inputShow {
   from {
     transform: scaleX(0);
   }
@@ -30,4 +30,66 @@
   to {
     transform: scaleX(1);
   }
+}
+
+@keyframes ButtonShow {
+  from {
+    color: rgba($c-dark, 0);
+    transform: scaleX(0);
+  }
+
+  60% {
+    color: rgba($c-dark, 0);
+  }
+
+  to {
+    color: rgba($c-dark, 1);
+    transform: scaleX(1);
+  }
+}
+
+@keyframes rulesLeadShow {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rulesItemPointShow {
+  from {
+    transform: scale(0);
+    transform-origin: center;
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes rulesItemTextShow {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rulesLinkShow {
+
 }
