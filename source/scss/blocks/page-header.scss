@@ -28,6 +28,7 @@
 
 .page-header__logo {
   @include hover;
+  @include headerFooterTransition();
   position: relative;
   flex: none;
   top: -0.5rem;
@@ -35,6 +36,8 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  opacity: 0;
+  transform: translateX(-4rem);
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -47,6 +50,7 @@
     padding: 0.5rem 0;
     width: 6.8rem;
     z-index: 1;
+    transform: translateX(-1rem);
 
     .page-header--menu-opened & {
       color: $c-dark;
@@ -62,6 +66,11 @@
     .page-header--menu-opened & {
       color: $c-dark;
     }
+  }
+
+  .loaded & {
+    opacity: 1;
+    transform: translateX(0);
   }
 
   svg {
@@ -165,6 +174,17 @@
     overflow-y: auto;
 
     .page-header--menu-opened & {
+      transform: translateX(0);
+    }
+  }
+
+  @media (min-width: $tablet) {
+    @include headerFooterTransition();
+    opacity: 0;
+    transform: translateX(4rem);
+
+    .loaded & {
+      opacity: 1;
       transform: translateX(0);
     }
   }

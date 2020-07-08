@@ -49,44 +49,29 @@
   }
 
   .chat__footer & {
-    transform: scaleX(0);
     color: rgba($c-dark, 0);
-    transition: transform 0.5s ease;
     transform-origin: right;
-
-    &::-webkit-input-placeholder {
-      color: $c-dark;
-      opacity: 0;
-      transition: opacity 0.5s ease 0.2s;
-    }
-
-    &:-ms-input-placeholder {
-      color: $c-dark;
-      opacity: 0;
-      transition: opacity 0.5s ease 0.2s;
-    }
-
-    &::placeholder {
-      color: $c-dark;
-      opacity: 0;
-      transition: opacity 0.5s ease 0.4s;
-    }
   }
 
   .active .chat__footer & {
     width: calc(100% - 21rem);
-    transform: scaleX(1);
+    animation-name: inputShow;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
     color: $c-dark;
 
     &::-webkit-input-placeholder {
+      color: $c-dark;
       opacity: 0.5;
     }
 
     &:-ms-input-placeholder {
+      color: $c-dark;
       opacity: 0.5;
     }
 
     &::placeholder {
+      color: $c-dark;
       opacity: 0.5;
     }
 

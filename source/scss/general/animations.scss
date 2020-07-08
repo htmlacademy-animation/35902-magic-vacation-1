@@ -1,3 +1,53 @@
+@keyframes bgFill {
+  from {
+    height: 0;
+    z-index: 10000;
+  }
+
+  to {
+    height: 100%;
+    z-index: 0;
+  }
+}
+
+@keyframes introFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes inputShow {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes ButtonShow {
+  from {
+    color: rgba($c-dark, 0);
+    transform: scaleX(0);
+  }
+
+  60% {
+    color: rgba($c-dark, 0);
+  }
+
+  to {
+    color: rgba($c-dark, 1);
+    transform: scaleX(1);
+  }
+}
+
 @keyframes rulesLeadShow {
   from {
     opacity: 0;
@@ -38,4 +88,8 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+@keyframes rulesLinkShow {
+
 }
