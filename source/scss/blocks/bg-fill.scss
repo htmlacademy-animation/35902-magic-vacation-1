@@ -4,7 +4,7 @@
   bottom: 0;
   width: 100%;
 
-  &.active {
+  &.animated {
     animation-name: bgFill;
     animation-duration: 750ms;
     animation-fill-mode: both;

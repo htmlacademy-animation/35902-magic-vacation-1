@@ -217,7 +217,7 @@
   transform: scaleX(0);
   transform-origin: right;
 
-  &.active {
+  &.animated {
     animation-name: ButtonShow;
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
