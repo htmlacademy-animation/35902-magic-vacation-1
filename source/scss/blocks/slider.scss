@@ -173,6 +173,17 @@
   width: 4rem;
   height: 4rem;
   color: $c-dark;
+  transform-origin: center;
+
+  .active & {
+    animation-name: sliderControlRoll;
+    animation-duration: 0.4s;
+    animation-fill-mode: backwards;
+  }
+
+  .active &--prev {
+    animation-name: sliderControlRollReverse;
+  }
 
   @media (min-width: $stop-scaling) {
     width: 40px;

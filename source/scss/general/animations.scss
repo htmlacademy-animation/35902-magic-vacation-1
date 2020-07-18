@@ -90,6 +90,30 @@
   }
 }
 
-@keyframes rulesLinkShow {
+@keyframes sliderControlRoll {
+  from {
+    left: 120px;
+    transform: rotate(180deg);
+    opacity: 0;
+  }
 
+  to {
+    left: 0;
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes sliderControlRollReverse {
+  from {
+    left: -120px;
+    transform: rotate(-180deg);
+    opacity: 0;
+  }
+
+  to {
+    left: 0;
+    transform: rotate(0);
+    opacity: 1;
+  }
 }
