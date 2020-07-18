@@ -95,6 +95,8 @@
   line-height: 1.27;
   animation-name: introFadeIn;
   animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: both;
 
   @media (min-width: $stop-scaling) {
     width: 509px;
@@ -143,6 +145,10 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.2;
+  animation-name: simpleFadeIn;
+  animation-duration: 0.8s;
+  animation-delay: 1.5s;
+  animation-fill-mode: both;
 
   @media (min-width: $stop-scaling) {
     margin: 0 0 16px;

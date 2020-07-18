@@ -1,0 +1,31 @@
+.word {
+  display: inline-block;
+  margin: 0 5px;
+  overflow: hidden;
+
+  &--title {
+    padding-top: 20px;
+  }
+
+  &--date {
+    padding: 4px;
+  }
+}
+
+.word > span {
+  display: inline-block;
+  transform: translate3d(0, 1em, 0);
+
+  .animated & {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.word--title > span {
+  margin-left: -4px;
+  transform: translate3d(0, calc(1em + 20px), 0);
+}
+
+.word--date > span {
+  transform: translate3d(0, calc(1em + 4px), 0);
+}

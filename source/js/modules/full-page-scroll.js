@@ -10,6 +10,7 @@ export default class FullPageScroll {
 
     this._activeClass = `active`;
     this._hiddenClass = `screen--hidden`;
+    this._animatedClass = `animated`;
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
@@ -39,7 +40,7 @@ export default class FullPageScroll {
 
   changePageDisplay() {
     const rulesLink = document.querySelector(`.rules__link`);
-    rulesLink.classList.remove(this._activeClass);
+    rulesLink.classList.remove(this._animatedClass);
 
     this.changeVisibilityDisplay();
     this.changeActiveMenuItem();
@@ -49,6 +50,9 @@ export default class FullPageScroll {
   changeVisibilityDisplay() {
     const filledScreens = [2];
     const bgFill = document.querySelector(`.bg-fill`);
+    const introTitle = document.querySelector(`.intro__title`);
+    const introDate = document.querySelector(`.intro__date`);
+    const mainScreenIndex = 0;
 
     if (filledScreens.includes(this.activeScreen)) {
       this.screenElements.forEach((el) => {
@@ -56,7 +60,7 @@ export default class FullPageScroll {
           this.hide(el);
         }, this.VISIBILITY_TIMEOUT);
       });
-      bgFill.classList.add(this._activeClass);
+      bgFill.classList.add(this._animatedClass);
 
       setTimeout(() => {
         this.show(this.screenElements[this.activeScreen]);
@@ -65,8 +69,20 @@ export default class FullPageScroll {
       this.screenElements.forEach((el) => {
         this.hide(el);
       });
-      bgFill.classList.remove(this._activeClass);
+      bgFill.classList.remove(this._animatedClass);
       this.show(this.screenElements[this.activeScreen]);
+    }
+
+    introTitle.classList.remove(this._animatedClass);
+    introDate.classList.remove(this._animatedClass);
+
+    if (this.activeScreen === mainScreenIndex) {
+      setTimeout(()=>{
+        introTitle.classList.add(this._animatedClass);
+      }, 400);
+      setTimeout(()=>{
+        introDate.classList.add(this._animatedClass);
+      }, 1100);
     }
   }
 
