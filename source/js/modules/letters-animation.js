@@ -75,4 +75,3 @@ export default class LettersAnimation {
     this._element.classList.remove(this._animatedClass);
   }
 }
-
