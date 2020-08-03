@@ -222,6 +222,10 @@
     margin-right: 3.8rem;
   }
 
+  &.hidden {
+    display: none;
+  }
+
   img {
     display: block;
     width: 100%;
