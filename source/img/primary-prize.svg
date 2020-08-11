@@ -223,27 +223,35 @@
     </g>
   </g>
   <g id="seatScene">
-    <g style="opacity: 0;">
-      <animate attributeType="CSS" 
-        attributeName="opacity"
-        from="0"
-        to="1"
-        begin="mountainsAnimation.end + 0.1s"
-        dur="1s"
-        fill="freeze"
-        />
-      <g id="skis" transform="translate(-400 0)">
+    <g>
+      <g id="skis" transform="translate(-400 0)" style="opacity: 0;">
+        <animate attributeType="CSS" 
+          attributeName="opacity"
+          from="0"
+          to="1"
+          begin="palmAnimation.begin + 0.1s"
+          dur="1s"
+          fill="freeze"
+          />
         <animateTransform attributeName="transform"
           type="translate"
           values="-400 0; 0 0"
-          begin="seatAnimation.begin + 0.1s"
+          begin="palmAnimation.begin + 0.1s"
           dur="0.3s"
           fill="freeze"
           />
         <path d="M91.14,327.79a2.2,2.2,0,0,1-2-2.36l13.66-193.17c1.1-15.49-4.8-21.92-8.75-24.47a1.35,1.35,0,0,1,.53-2.45C103,104,122.18,104,120,134.19L106.43,326.67a2.2,2.2,0,0,1-2.35,2Z" fill="#fff"/>
         <path d="M124.5,328.17a2.2,2.2,0,0,1-2.17-2.23l2.24-193.63c0.19-15.53-6.07-21.61-10.16-23.91a1.35,1.35,0,0,1,.39-2.47c8.36-1.9,27.49-3,27.15,27.28l-2.25,192.93a2.2,2.2,0,0,1-2.22,2.18Z" fill="#fff"/>
       </g>
-      <g id="seat" transform="translate(-400 0)">
+      <g id="seat" transform="translate(-400 0)" style="opacity: 0;">
+        <animate attributeType="CSS" 
+          attributeName="opacity"
+          from="0"
+          to="1"
+          begin="mountainsAnimation.end + 0.1s"
+          dur="0.6s"
+          fill="freeze"
+          />
         <animateTransform attributeName="transform"
           id="seatAnimation"
           type="translate"
@@ -266,8 +274,17 @@
         <path d="M206.26,259.82h-72l-2.13-14.19H200.6a9.92,9.92,0,0,1,9.9,9.93A4.26,4.26,0,0,1,206.26,259.82Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/>
         <line x1="151.57" y1="195.44" x2="209.05" y2="195.44" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
       </g>
-      <g id="palm" transform="translate(-400 0)">
+      <g id="palm" transform="translate(-400 0)" style="opacity: 0;">
+        <animate attributeType="CSS" 
+          attributeName="opacity"
+          from="0"
+          to="1"
+          begin="seatAnimation.begin + 0.1s"
+          dur="1s"
+          fill="freeze"
+          />
         <animateTransform attributeName="transform"
+          id="palmAnimation"
           type="translate"
           values="-400 0; 0 0"
           begin="seatAnimation.begin + 0.1s"
@@ -276,15 +293,7 @@
           />
         <animateTransform attributeName="transform"
             type="rotate"
-            values="0, 30, 300; 2.5, 30, 300; -2.5, 30, 300; 2, 30, 300; 0, 30, 300"
-            dur="2s"
-            begin="seatAnimation.begin + 0.1s"
-            additive="sum"
-            repeatCount="indefinite"
-          />
-        <animateTransform attributeName="transform"
-            type="translate"
-            values="0 0; 0 4; 0 4; 0 2; 0 0"
+            values="0, 150, 327; 2.5, 150, 327; -2.5, 150, 327; 2, 150, 327; 0, 150, 327"
             dur="2s"
             begin="seatAnimation.begin + 0.1s"
             additive="sum"
@@ -303,7 +312,15 @@
         <path d="M141,264.26a236.09,236.09,0,0,0-5.58,29.9,117.46,117.46,0,0,0,11.15-27.73,127.2,127.2,0,0,0,4-31A214.24,214.24,0,0,0,141,264.26" fill="#068e4d"/>
         <path d="M92.62,217.67A529.26,529.26,0,0,1,149.48,328" fill="none" stroke="#36e69a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       </g>
-      <g>
+      <g style="opacity: 0;">
+        <animate attributeType="CSS" 
+          attributeName="opacity"
+          from="0"
+          to="1"
+          begin="mountainsAnimation.end + 0.1s"
+          dur="1s"
+          fill="freeze"
+          />
         <line x1="72.03" y1="329" x2="295.52" y2="329" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
       </g>
     </g>
