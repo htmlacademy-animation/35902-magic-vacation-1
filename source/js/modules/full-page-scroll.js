@@ -87,10 +87,13 @@ export default class FullPageScroll {
 
     if (this.activeScreen === 2) {
       let prizeImg = document.createElement(`img`);
+      let firstPrize = document.querySelector(`.prizes__item--journeys .prizes__icon`);
       let secondPrize = document.querySelector(`.prizes__item--cases .prizes__icon`);
 
-
-      if (!secondPrize.querySelector(`img`)) {
+      if (!firstPrize.querySelector(`img`)) {
+        prizeImg.setAttribute(`src`, `img/primary-prize.svg`);
+        firstPrize.appendChild(prizeImg);
+      } else if (!secondPrize.querySelector(`img`)) {
         prizeImg.setAttribute(`src`, `img/secondary-prize.svg`);
         secondPrize.appendChild(prizeImg);
       }
