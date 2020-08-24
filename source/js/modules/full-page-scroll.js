@@ -100,6 +100,10 @@ export default class FullPageScroll {
     }
   }
 
+  // Задание по svg возможно доделаю потом.
+  // Попрактиковалась на свг-анимации в первом задании, представление получила.
+  // Хочется идти дальше, так как пошла на курс ради других тем.
+
   hide(screen) {
     screen.classList.add(this._hiddenClass);
     screen.classList.remove(this._activeClass);
