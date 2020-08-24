@@ -84,6 +84,17 @@ export default class FullPageScroll {
         introDate.classList.add(this._animatedClass);
       }, 1100);
     }
+
+    if (this.activeScreen === 2) {
+      let prizeImg = document.createElement(`img`);
+      let secondPrize = document.querySelector(`.prizes__item--cases .prizes__icon`);
+
+
+      if (!secondPrize.querySelector(`img`)) {
+        prizeImg.setAttribute(`src`, `img/secondary-prize.svg`);
+        secondPrize.appendChild(prizeImg);
+      }
+    }
   }
 
   hide(screen) {
